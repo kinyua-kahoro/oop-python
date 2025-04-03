@@ -1,28 +1,13 @@
-class Item:
-    pay_rate=0.8
-    #to store all the inputs in a list
-    all = []
-    def __init__(self, name: str, price: float, quantity: int):
-        # running input validations
-        assert price >= 0, "Price must be positive!"
-        assert quantity>= 0, "Quantity must be positive!"
-        # storing input data
-        self.name = name
-        self.price = price
-        self.quantity = quantity
-        print(f"I have {quantity} {name} which are valued at {price} each.")
-        # to store the input in the list
-        Item.all.append(self)
-    def calculate_total_price(self):
-     return self.price * self.quantity
-    def apply_discount(self):
-        self.price = self.price * self.pay_rate
-    def __repr__(self):
-        return f"Item:( {self.name}, price: {self.price}, quantity: {self.quantity})"
+from item import Item
+from phone import Phone
+from chair import Chair
 
-item1 = Item("car", 1500,6)
-item2 = Item("phone", 800, 8)
-item3 = Item("chair",700,10)
-item4 = Item("desk",1000,5)
-item5 = Item("shoe", 200,2)
-print(Item.all)
+# Item.instantiate_from_csv()
+# print(Item.all)
+
+#if you are running Phone add broken_phone argument
+item1 = Chair("Kahoro", 750, 1)
+item1.apply_increment(0.2)
+item1.apply_discount()
+print(item1.price)
+item1.send_email()
